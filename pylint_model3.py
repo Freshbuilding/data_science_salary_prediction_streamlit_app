@@ -13,12 +13,11 @@ import plotly.express as px
 # import data and model
 
 # Load the dataset
-salaries = pd.read_csv(
-    '/Users/vincent/Downloads/Last version/ds_salaries.csv')
+salaries = pd.read_csv('ds_salaries.csv')
 
 # Load the saved model
 with open(
-    '/Users/vincent/Downloads/Last version/model_2023.sav',
+    'model_2023.sav',
         'rb') as f:
     model = pkl.load(f)
 
@@ -179,13 +178,13 @@ def main():
             'Company Sizes in Data Science Field')
 
     st.image(
-        '/Users/vincent/Downloads/Last version/iStock-1221293664-1-1-1.jpg',
+        'iStock-1221293664-1-1-1.jpg',
         use_column_width=True)
 
     # sidebar layout
 
     st.sidebar.image(
-        '/Users/vincent/Downloads/Last version/ab.png',
+        'ab.png',
         width=150)
     st.sidebar.title('Predict your future salary')
     st.sidebar.write('Enter your profile information below:')
