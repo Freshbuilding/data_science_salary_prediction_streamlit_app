@@ -23,42 +23,44 @@ with open(
 
 # Preprocessing user input
 
-
 def preprocess_inputs(title, experience, remoter, size, location):
     """
     This function takes in user inputs related to a job posting
     and preprocesses them to be used for model predictions.
     """
     user_input_dict = {
-        'title': [title], 'experience': [experience],
-        'remoter': [remoter], 'size': [size], 'location': [location]
+        'job_title': [title], 
+        'experience_level': [experience],
+        'remote_ratio': [remoter], 
+        'company_size': [size], 
+        'company_location_is_US': [location]
     }
 
     user_input = pd.DataFrame(data=user_input_dict)
 
     cleaner_type = {
-        'title': {
+        'job_title': {
             'Data Analyst': 0,
             'Data Scientist': 1,
             'Data Engineer': 2,
             'Machine Learning Engineer': 3
         },
-        'experience': {
+        'experience_level': {
             'Entry-level': 0,
             'Mid-Level': 1,
             'Senior': 2
         },
-        'remoter': {
+        'remote_ratio': {
             'No remote': 0,
             'Semi remote': 1,
             'Full remote': 2
         },
-        'size': {
+        'company_size': {
             'Small': 0,
             'Medium': 1,
             'Large': 2
         },
-        'location': {
+        'company_location_is_US': {
             'US': 1,
             'Other': 0
         }
@@ -67,6 +69,7 @@ def preprocess_inputs(title, experience, remoter, size, location):
     user_input = user_input.replace(cleaner_type)
 
     return user_input
+
 
 # Function to create a bar chart
 
